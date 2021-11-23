@@ -1,0 +1,31 @@
+
+#Basic info
+name: 'zip_spider_v2'
+start_urls: ['https://theurge.com/']
+
+#link extraction xpaths
+paginate_down_page: '(//*[@class="_3KP0F B3iaM"]/a)'
+paginate_horizontally: '//*[@class="_3EoM2"]'
+
+catagory_url: '//*[@class="_3EoM2"]//@href'
+toal_catagory_items: '//*[@class="_3-VCf"]/text()'
+
+
+##Item xpaths
+items:
+  - fieldName: 'price' 
+    xpath : '//*[@class="eP0wn _2xJnS"]'
+    re : '\d{1,3}(?:[.,]\d{3})*(?:[.,]\d{2})'
+    string_replacements: [',', '']
+
+  - fieldName: 'previous_price'
+    xpath: '//*[@class="_2plVT"]'
+  
+  - fieldName: brand
+    xpath: '//*[@class = "URfXD"]/text()'
+  
+  - fieldName: 'description'
+    xpath: '//*[@class = "_3I42k"]/text()'
+  
+  - fieldName: 'website'
+    xpath: '//*[@class = "ZV4Wf"]/text()'
